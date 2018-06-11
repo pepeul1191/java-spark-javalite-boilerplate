@@ -100,9 +100,12 @@ public class DepartamentoHandler{
       JSONObject rptaMensaje = new JSONObject();
       rptaMensaje.put("tipo_mensaje", "error");
       rptaMensaje.put("mensaje", cuerpoMensaje);
+      response.status(500);
       rpta = rptaMensaje.toString();
     }else{
-      String[] cuerpoMensaje = {"Se ha registrado los cambios en los departamentos", listJSONNuevos.toString()};
+      JSONArray cuerpoMensaje =  new JSONArray();
+      cuerpoMensaje.put("Se ha registrado los cambios en los departamentos");
+      cuerpoMensaje.put(listJSONNuevos);
       JSONObject rptaMensaje = new JSONObject();
       rptaMensaje.put("tipo_mensaje", "success");
       rptaMensaje.put("mensaje", cuerpoMensaje);
